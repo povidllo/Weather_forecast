@@ -27,7 +27,7 @@
      <string>find out the weather forecast</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="f_coutry">
+   <widget class="QComboBox" name="f_country">
     <property name="geometry">
      <rect>
       <x>20</x>

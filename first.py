@@ -28,10 +28,10 @@ class Ui_first_window(object):
         self.f_button = QPushButton(self.centralwidget)
         self.f_button.setObjectName(u"f_button")
         self.f_button.setGeometry(QRect(50, 240, 271, 111))
-        self.f_coutry = QComboBox(self.centralwidget)
-        self.f_coutry.addItem("")
-        self.f_coutry.setObjectName(u"f_coutry")
-        self.f_coutry.setGeometry(QRect(20, 80, 171, 81))
+        self.f_country = QComboBox(self.centralwidget)
+        self.f_country.addItem("")
+        self.f_country.setObjectName(u"f_country")
+        self.f_country.setGeometry(QRect(20, 80, 171, 81))
         self.f_city = QComboBox(self.centralwidget)
         self.f_city.addItem("")
         self.f_city.setObjectName(u"f_city")
@@ -49,7 +49,7 @@ class Ui_first_window(object):
     def retranslateUi(self, first_window):
         first_window.setWindowTitle(QCoreApplication.translate("first_window", u"MainWindow", None))
         self.f_button.setText(QCoreApplication.translate("first_window", u"find out the weather forecast", None))
-        self.f_coutry.setItemText(0, QCoreApplication.translate("first_window", u"Select country", None))
+        self.f_country.setItemText(0, QCoreApplication.translate("first_window", u"Select country", None))
 
         self.f_city.setItemText(0, QCoreApplication.translate("first_window", u"Select city", None))
 
