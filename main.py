@@ -18,17 +18,12 @@ class f_window(QMainWindow):  # first screen (choosing country and city)
         self.ui.f_country.currentIndexChanged.connect(self.update_city)
         self.ui.f_button.pressed.connect(self.pressed)
 
-    class s_window(QMainWindow):  # Second screen
-        def __init__(self, text):
-            super(s_window, self).__init__()
-            self.ui = Ui_second_window()
-            self.ui.setupUi(self)
-            self.ui.lineEdit.setText(text)
 
     def pressed(self):  # Implementation of first page button press and get country and city
         city = self.ui.f_city.currentText()
+        country = self.ui.f_country.currentText()
         global second_window
-        second_window = s_window(city)
+        second_window = s_window(city, country)
         main_window.close()
         second_window.show()
 
@@ -50,11 +45,13 @@ class f_window(QMainWindow):  # first screen (choosing country and city)
 
 
 class s_window(QMainWindow):  # Second screen
-    def __init__(self, text):
+    def __init__(self, city, country):
         super(s_window, self).__init__()
         self.ui = Ui_second_window()
         self.ui.setupUi(self)
-        self.ui.lineEdit.setText(text)
+        self.city = city
+        self.country = country
+        self.ui.lineEdit.setText(self.city)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
