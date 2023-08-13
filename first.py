@@ -22,7 +22,7 @@ class Ui_first_window(object):
     def setupUi(self, first_window):
         if not first_window.objectName():
             first_window.setObjectName(u"first_window")
-        first_window.resize(410, 387)
+        first_window.resize(414, 401)
         self.centralwidget = QWidget(first_window)
         self.centralwidget.setObjectName(u"centralwidget")
         self.f_button = QPushButton(self.centralwidget)

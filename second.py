@@ -15,8 +15,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QMainWindow, QPushButton, QSizePolicy,
-    QStatusBar, QWidget)
+from PySide6.QtWidgets import (QApplication, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QStatusBar, QWidget)
 
 class Ui_second_window(object):
     def setupUi(self, second_window):
@@ -28,6 +28,12 @@ class Ui_second_window(object):
         self.s_button = QPushButton(self.centralwidget)
         self.s_button.setObjectName(u"s_button")
         self.s_button.setGeometry(QRect(100, 290, 211, 41))
+        self.lineEdit = QLineEdit(self.centralwidget)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setGeometry(QRect(80, 50, 101, 51))
+        self.city_name = QLineEdit(self.centralwidget)
+        self.city_name.setObjectName(u"city_name")
+        self.city_name.setGeometry(QRect(252, 61, 151, 41))
         second_window.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(second_window)
         self.statusbar.setObjectName(u"statusbar")

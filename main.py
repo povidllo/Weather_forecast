@@ -13,19 +13,30 @@ class f_window(QMainWindow):  # first screen (choosing country and city)
         super(f_window, self).__init__()
         self.ui = Ui_first_window()
         self.ui.setupUi(self)
-        self.ui.f_button.clicked.connect(self.gotoWindow2)
         for i in cities.get_city():
             self.ui.f_country.addItems([i])
         self.ui.f_country.currentIndexChanged.connect(self.update_city)
         self.ui.f_button.pressed.connect(self.pressed)
 
-    def gotoWindow2(self):  # Implementation screens
-        wiget.setCurrentIndex(wiget.currentIndex() + 1)
+    class s_window(QMainWindow):  # Second screen
+        def __init__(self, text):
+            super(s_window, self).__init__()
+            self.ui = Ui_second_window()
+            self.ui.setupUi(self)
+            self.ui.lineEdit.setText(text)
 
     def pressed(self):  # Implementation of first page button press and get country and city
-        self.country = self.ui.f_country.currentText()
-        self.city = self.ui.f_city.currentText()
-        print(self.country, self.city)
+        city = self.ui.f_city.currentText()
+        global second_window
+        second_window = s_window(city)
+        main_window.close()
+        second_window.show()
+
+        def return_to_main():
+            second_window.close()
+            main_window.show()
+
+        second_window.ui.s_button.clicked.connect(return_to_main)
 
     def update_city(self):  # Implementation of choosing a country and updating the city list
         country = self.ui.f_country.currentText()
@@ -39,25 +50,14 @@ class f_window(QMainWindow):  # first screen (choosing country and city)
 
 
 class s_window(QMainWindow):  # Second screen
-    def __init__(self):
+    def __init__(self, text):
         super(s_window, self).__init__()
         self.ui = Ui_second_window()
         self.ui.setupUi(self)
-
+        self.ui.lineEdit.setText(text)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    wiget = QtWidgets.QStackedWidget()
-
     main_window = f_window()
-    window2 = s_window()
-
-    wiget.addWidget(main_window)
-    wiget.addWidget(window2)
-
-    wiget.setFixedWidth(500)
-    wiget.setFixedHeight(500)
-
-    # main_window.show()
-    wiget.show()
+    main_window.show()
     sys.exit(app.exec())
