@@ -6,35 +6,122 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>414</width>
-    <height>401</height>
+    <width>440</width>
+    <height>680</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>440</width>
+    <height>680</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>440</width>
+    <height>680</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	color: black;
+	background:rgb(73, 203, 255);
+	font-family: Verdana ;
+	font-weight: 600;
+}
+
+QLineEdit{
+	border: 0px;
+}
+QPushButton {
+	background-color:rgb(73, 203, 255);
+	border: 4px solid rgb(91, 91, 91);
+	border-radius: 20px
+}
+
+QPushButton:hover {
+	background-color:rgb(66, 183, 255);
+
+}
+
+QPushButton:pressed {
+	background-color: #888 ;
+}
+
+QComboBox {
+    border-radius: 20px; /* Здесь можно настроить радиус скругления углов */
+
+    border: 4px solid rgb(91, 91, 91);
+}
+
+
+QComboBox:hover {
+    background-color:rgb(66, 183, 255); /* Измените на желаемый цвет при наведении */
+}
+
+
+QComboBox:drop-down{
+	border: 0px;
+	background-color:rgb(73, 203, 255);
+	border-radius: 20px
+}
+QComboBox:down-arrow{
+	image: url(:/icons/icons/expand_more_FILL0_wght400_GRAD0_opsz48.png);
+	width:30px;
+	height: 30px;
+	margin-right: 15px;
+}
+
+QComboBox QListView{
+	border: 0px;
+padding: 5px;
+border-radius: 20px;
+}
+
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="f_button">
+   <widget class="QPushButton" name="weather_button">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>240</y>
-      <width>271</width>
+      <x>10</x>
+      <y>520</y>
+      <width>420</width>
       <height>111</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>19</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>find out the weather forecast</string>
+     <string>Find out the weather forecast</string>
     </property>
    </widget>
    <widget class="QComboBox" name="f_country">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>80</y>
-      <width>171</width>
-      <height>81</height>
+      <x>10</x>
+      <y>340</y>
+      <width>420</width>
+      <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>20</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
     </property>
     <item>
      <property name="text">
@@ -45,11 +132,18 @@
    <widget class="QComboBox" name="f_city">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>80</y>
-      <width>161</width>
-      <height>81</height>
+      <x>10</x>
+      <y>430</y>
+      <width>420</width>
+      <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>20</pointsize>
+      <bold>true</bold>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -57,9 +151,72 @@
      </property>
     </item>
    </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>440</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>30</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Weather Forecast</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>90</y>
+      <width>260</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resources.qrc">:/icons/icons/8179067.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
